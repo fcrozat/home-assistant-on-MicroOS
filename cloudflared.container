@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare Tunnel
+
+[Container]
+Image=docker.io/cloudflare/cloudflared:latest
+Label=io.containers.autoupdate=registry
+Exec=tunnel run
+Secret=cloudflare-token,type=env,target=TUNNEL_TOKEN
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target default.target
