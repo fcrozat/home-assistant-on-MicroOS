@@ -4,9 +4,13 @@ Description=Home Assistant
 [Container]
 Image=ghcr.io/home-assistant/home-assistant:stable
 Volume=/var/lib/home-assistant:/config:Z
-Network=host
 Label=io.containers.autoupdate=registry
 Environment=WATCHDOG_USEC=5000000 TZ=Europe/Paris
+
+# Ensure discovery works fine
+AddCapability=CAP_NET_RAW
+Network=host
+
 #Notify=true
 # uncomment and adapt path if you have a Zigbee USB dongle on your system
 # AddDevice=/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230505180832-if00:/dev/zigbee:rw
