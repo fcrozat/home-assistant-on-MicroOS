@@ -38,8 +38,10 @@ I use Home-Assistant own zigbee stack (ZHA).
 
 If your computer supports bluetooth and wants to integrate it in HA, do the following:
 
-* gpasswd -a nobody dialout
+* transactional-update pkg in bluez
 * copy my-bluetooth-dbus-policy.* to /etc/selinux
-* semodule semodule -i my-bluetooth-dbus-policy.pp
+* (if you need to recreate the policy, in toolbox -r, run the following: zypper in setroubleshoot ; ausearch -if /media/root/var/log/audit/audit.log |audit2allow -M my-bluetooth-dbus-policy ; cp my-bluetooth-dbus-policy.* /media/root/etc/selinux/
+* semodule -i my-bluetooth-dbus-policy.pp
 * uncomment ExecStartPre in home-assistant.container
-* systemctl daemon-reload
+* reboot (if you had to install bluez) or systemctl daemon-reload
+* systemctl restart home-assistant
