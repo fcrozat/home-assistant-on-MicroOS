@@ -12,6 +12,8 @@ Timezone=local
 AddCapability=CAP_NET_RAW
 Network=host
 
+# note: this is using https://github.com/brianegge/home-assistant-sdnotify.
+# to use it, uncomment this line and `WatchdogSec` line
 #Notify=true
 
 # uncomment and adapt path if you have a Zigbee USB dongle on your system
@@ -24,6 +26,8 @@ Volume=/run/dbus:/run/dbus:ro
 Restart=on-failure
 RestartSec=30
 TimeoutStopSec=70
+
+# needed for sdnotify, see above
 #WatchdogSec=60
 
 # uncomment to get bluetooth support, ensure BT radio is on
