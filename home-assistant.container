@@ -5,7 +5,8 @@ Description=Home Assistant
 Image=ghcr.io/home-assistant/home-assistant:stable
 Volume=/var/lib/home-assistant:/config:Z
 Label=io.containers.autoupdate=registry
-Environment=WATCHDOG_USEC=5000000 TZ=Europe/Paris
+Environment=WATCHDOG_USEC=5000000
+Timezone=local
 
 # Ensure discovery works fine
 AddCapability=CAP_NET_RAW
