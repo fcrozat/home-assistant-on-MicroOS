@@ -12,17 +12,21 @@ AddCapability=CAP_NET_RAW
 Network=host
 
 #Notify=true
+
 # uncomment and adapt path if you have a Zigbee USB dongle on your system
 # AddDevice=/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230505180832-if00:/dev/zigbee:rw
 
-# uncomment to get bluetooth support (still WIP for this setup)
-#Volume=/run/dbus:/run/dbus:ro
+# uncomment to get bluetooth support
+Volume=/run/dbus:/run/dbus:ro
 
 [Service]
 Restart=on-failure
 RestartSec=30
 TimeoutStopSec=70
 #WatchdogSec=60
+
+# uncomment to get bluetooth support, ensure BT radio is on
+# ExecStartPre=-/usr/bin/bluetoothctl power on
 
 [Install]
 WantedBy=multi-user.target default.target

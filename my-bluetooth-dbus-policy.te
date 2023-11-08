@@ -1,0 +1,31 @@
+
+module my-bluetooth-dbus-policy 1.0;
+
+require {
+	type system_dbusd_var_run_t;
+	type bluetooth_t;
+	type container_t;
+	type system_dbusd_t;
+	class sock_file write;
+	class unix_stream_socket connectto;
+	class dbus send_msg;
+}
+
+#============= bluetooth_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow bluetooth_t container_t:dbus send_msg;
+
+#============= container_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow container_t bluetooth_t:dbus send_msg;
+
+#!!!! This avc is allowed in the current policy
+allow container_t system_dbusd_t:dbus send_msg;
+
+#!!!! This avc is allowed in the current policy
+allow container_t system_dbusd_t:unix_stream_socket connectto;
+
+#!!!! This avc is allowed in the current policy
+allow container_t system_dbusd_var_run_t:sock_file write;

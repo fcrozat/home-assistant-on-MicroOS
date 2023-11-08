@@ -25,3 +25,21 @@ Home Assistant will update itself automatically when upstream release a new cont
 * cp cloudflared.container /etc/containers/systemd
 * systemctl daemon-reload
 * systemctl start cloudflared
+
+# Zigbee USB coordinator support
+
+I use Home-Assistant own zigbee stack (ZHA).
+
+* setsebool container_use_devices 1
+* uncomment AddDevice line in home-assistant.container and adapt the path to your Zigbee USB coordinator
+* in ZHA, if asked for device path, use /dev/zigbee
+
+# Bluetooth support
+
+If your computer supports bluetooth and wants to integrate it in HA, do the following:
+
+* gpasswd -a nobody dialout
+* copy my-bluetooth-dbus-policy.* to /etc/selinux
+* semodule semodule -i my-bluetooth-dbus-policy.pp
+* uncomment ExecStartPre in home-assistant.container
+* systemctl daemon-reload
