@@ -11,6 +11,7 @@ Once the system is deployed, as root, do the following:
 * chcon -R system_u:object_r:container_file_t:s0 -P /var/lib/home-assistant
 * cp home-assistant.container /etc/containers/systemd
 * systemctl daemon-reload
+* if running podman < 4.7.0, for initial startup, you might want to manually pull the container using podman pull ghcr.io/home-assistant/home-assistant:stable to workaround timeout
 * systemctl start home-assistant
 
 and that's it.
