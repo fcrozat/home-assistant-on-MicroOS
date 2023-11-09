@@ -26,6 +26,14 @@ Home Assistant will update itself automatically when upstream release a new cont
 * cp cloudflared.container /etc/containers/systemd
 * systemctl daemon-reload
 * systemctl start cloudflared
+* add to Home Assistant configuration.yaml:
+
+```
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.88.0.0/16
+```
 
 # Zigbee USB coordinator support
 
