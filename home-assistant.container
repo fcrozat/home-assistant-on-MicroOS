@@ -4,7 +4,7 @@ Description=Home Assistant
 [Container]
 Image=ghcr.io/home-assistant/home-assistant:stable
 Volume=/var/lib/home-assistant:/config:Z
-Label=io.containers.autoupdate=registry
+AutoUpdate=registry
 Environment=WATCHDOG_USEC=5000000
 Timezone=local
 
