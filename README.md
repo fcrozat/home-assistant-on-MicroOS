@@ -54,3 +54,12 @@ If your computer supports bluetooth and wants to integrate it in HA, do the foll
 * uncomment ExecStartPre in home-assistant.container
 * reboot (if you had to install bluez) or systemctl daemon-reload
 * systemctl restart home-assistant
+
+# Matter support
+
+If you want to integrate Matter in HA, do the following:
+* cp matter.container /etc/containers/systemd
+* systemctl daemon-reload
+* systemctl start matter
+* add Matter integration in HA (use the default settings)
+* 
