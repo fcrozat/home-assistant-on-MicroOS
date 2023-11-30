@@ -1,0 +1,21 @@
+[Unit]
+Description=Matter server
+
+[Container]
+Image=ghcr.io/home-assistant-libs/python-matter-server:stable
+Volume=/var/lib/matter-server:/data:Z
+AutoUpdate=registry
+Timezone=local
+
+# Required for mDNS to work correctly
+Network=host
+
+Volume=/run/dbus:/run/dbus:ro
+
+[Service]
+Restart=on-failure
+RestartSec=30
+TimeoutStopSec=70
+
+[Install]
+WantedBy=multi-user.target default.target
