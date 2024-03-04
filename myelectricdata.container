@@ -1,0 +1,16 @@
+[Unit]
+Description=My ElectricData
+
+[Container]
+Image=docker.io/m4dm4rtig4n/myelectricaldata:latest
+# PATH to your config.yaml file
+Volume=/home/myelectricaldata/data:/data
+AutoUpdate=registry
+Timezone=local
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target default.target
+
