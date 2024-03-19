@@ -62,4 +62,14 @@ If you want to integrate Matter in HA, do the following:
 * systemctl daemon-reload
 * systemctl start matter
 * add Matter integration in HA (use the default settings)
-* 
+
+# MQTT support
+
+If you want to integrate MQTT broker (Mosquitto) in HA, do the following:
+* mkdir -p /var/lib/mosquitto/{log,data,config}
+* cp mosquitto.conf /var/lib/mosquitto/config/
+* cp mosquitto.container /etc/containers/systemd
+* systemctl daemon-reload
+* systemctl start mosquitto
+* add MQTT integration in HA (use the default settings)
+* beware, this configuration is running Mosquitto in anonymous mode. You might want to configure authentication for it. 
