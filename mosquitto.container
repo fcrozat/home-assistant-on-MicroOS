@@ -6,10 +6,9 @@ Image=docker.io/eclipse-mosquitto
 
 Volume=/var/lib/mosquitto/config:/mosquitto/config:Z
 Volume=/var/lib/mosquitto/data:/mosquitto/data:Z
-Volume=/var/lib/mosquitto/log:/mosquitto/log:Z
 AutoUpdate=registry
 Timezone=local
-PublishPort=1883:1883
+Network=host
 
 [Service]
 Restart=on-failure
