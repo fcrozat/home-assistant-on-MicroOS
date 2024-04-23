@@ -1,5 +1,6 @@
 [Unit]
 Description=Matter server
+After=network-online.target
 
 [Container]
 Image=ghcr.io/home-assistant-libs/python-matter-server:stable
