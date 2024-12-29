@@ -22,6 +22,9 @@ Network=host
 # uncomment to get bluetooth support
 Volume=/run/dbus:/run/dbus:ro
 
+# workaround for https://github.com/home-assistant/core/issues/133373 until it is fixed
+Volume=tmpfs:/.dockerenv
+
 [Service]
 Restart=on-failure
 RestartSec=30
